@@ -6,7 +6,9 @@
             "fLastName": "Herrera",
             "mLastName": "Cardenas",
             "Name": "Diego",
-            "Credit": 0 ,
+            "Credit": true,
+            "Total_Credit": 100.50,
+            "telephone": "5512345678",
             "associate": true
         },
         {
@@ -14,7 +16,9 @@
             "fLastName": "Lozano",
             "mLastName": "Rubio",
             "Name": "Andres",
-            "Credit": 111111111.00,
+            "Credit": false,
+            "Total_Credit": 0,
+            "telephone": "5512345678",
             "associate": false
         },
         {
@@ -22,7 +26,9 @@
             "fLastName": "Delgado",
             "mLastName": "Vazquez",
             "Name": "Monica",
-            "Credit": 999999999.00,
+            "Credit": true,
+            "Total_Credit": 50,
+            "telephone": "5512345678",
             "associate": true
         }
     ]
