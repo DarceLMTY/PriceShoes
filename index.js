@@ -22,8 +22,8 @@ const readData = () => {
         return JSON.parse(data);
     } catch(error) {
         console.log(error);
+        res.status(500).send(error.message);
     }
-    
 };
 
 const writeData = (data) => {
@@ -88,30 +88,27 @@ app.get('/api/associates/:ID_Associate', (req, res)=>{
 });
 */
 
+// The resource does not exist
+app.all('*',(req,res,next)=>{
 
+    // res.status(404).json({
+    //     status: 'fail',
+    //     message: `Cant find ${req.originalUrl} on the server`
+    // });
 
-/*
-app.post('/api/associates', (req,res)=>{
-    const associate ={
-        id: associates.length +1,
-        name: req.body.name,
-        age: parseInt(req.body.age),
-        enroll: (req.body.enroll === 'true')
-    };
+    res.status(404).send(`Cant find ${req.originalUrl} on the server`);
 
-    associates.push(associate);
-    res.send(associate);
 });
 
-app.delete('/api/associates/:id' , (req,res)=> {
 
-    const associate = associates.find(c=>c.id === parseInt(req.params.id));
-    if(!associate) return res.status(404).send('Estudiante NO encontrado');
-    else index = associates.indexOf(associate);
-    associates.splice(index,1);
-    res.send(associate);
-
-});*/
+app.use(function(err, req, res) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+    
+});
 
 //Listen through port 4444
 app.listen(port, function (err) {
